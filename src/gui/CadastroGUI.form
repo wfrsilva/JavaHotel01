@@ -137,6 +137,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nome_hotel">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="cidade_hotel"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nome_hotelActionPerformed"/>
       </Events>
@@ -147,6 +152,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cidade_hotel">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="num_quartos_hotel"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="num_quartos">
       <Properties>
@@ -154,6 +164,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="num_quartos_hotel">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="valor_diaria_hotel"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="valor_diaria">
       <Properties>
@@ -161,6 +176,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="valor_diaria_hotel">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="num_estrelas_hotel"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="valor_diaria_hotelActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="num_estrelas">
       <Properties>
@@ -168,10 +191,18 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="num_estrelas_hotel">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="salvar"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="salvar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="listar"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarActionPerformed"/>
@@ -180,6 +211,9 @@
     <Component class="javax.swing.JButton" name="listar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Listar"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="alterar"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarActionPerformed"/>
@@ -188,6 +222,9 @@
     <Component class="javax.swing.JButton" name="alterar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Alterar"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="excluir"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alterarActionPerformed"/>
@@ -196,6 +233,9 @@
     <Component class="javax.swing.JButton" name="excluir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="limpar"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excluirActionPerformed"/>
@@ -204,6 +244,9 @@
     <Component class="javax.swing.JButton" name="limpar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="sair"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparActionPerformed"/>
@@ -212,6 +255,9 @@
     <Component class="javax.swing.JButton" name="sair">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="nome_hotel"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sairActionPerformed"/>

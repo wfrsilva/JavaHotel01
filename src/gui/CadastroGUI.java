@@ -60,6 +60,7 @@ public class CadastroGUI extends javax.swing.JFrame {
 
         nome.setText("Nome:");
 
+        nome_hotel.setNextFocusableComponent(cidade_hotel);
         nome_hotel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nome_hotelActionPerformed(evt);
@@ -68,13 +69,27 @@ public class CadastroGUI extends javax.swing.JFrame {
 
         cidade.setText("Cidade:");
 
+        cidade_hotel.setNextFocusableComponent(num_quartos_hotel);
+
         num_quartos.setText("Número de quartos:");
+
+        num_quartos_hotel.setNextFocusableComponent(valor_diaria_hotel);
 
         valor_diaria.setText("Valor da diária:");
 
+        valor_diaria_hotel.setNextFocusableComponent(num_estrelas_hotel);
+        valor_diaria_hotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valor_diaria_hotelActionPerformed(evt);
+            }
+        });
+
         num_estrelas.setText("Número de estrelas:");
 
+        num_estrelas_hotel.setNextFocusableComponent(salvar);
+
         salvar.setText("Salvar");
+        salvar.setNextFocusableComponent(listar);
         salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salvarActionPerformed(evt);
@@ -82,6 +97,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         });
 
         listar.setText("Listar");
+        listar.setNextFocusableComponent(alterar);
         listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listarActionPerformed(evt);
@@ -89,6 +105,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         });
 
         alterar.setText("Alterar");
+        alterar.setNextFocusableComponent(excluir);
         alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alterarActionPerformed(evt);
@@ -96,6 +113,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         });
 
         excluir.setText("Excluir");
+        excluir.setNextFocusableComponent(limpar);
         excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 excluirActionPerformed(evt);
@@ -103,6 +121,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         });
 
         limpar.setText("Limpar");
+        limpar.setNextFocusableComponent(sair);
         limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 limparActionPerformed(evt);
@@ -110,6 +129,7 @@ public class CadastroGUI extends javax.swing.JFrame {
         });
 
         sair.setText("Sair");
+        sair.setNextFocusableComponent(nome_hotel);
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairActionPerformed(evt);
@@ -318,6 +338,10 @@ System.out.println(hotel.getCidade());
         dao.exclui(hotel);   
         
     }//GEN-LAST:event_excluirActionPerformed
+
+    private void valor_diaria_hotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valor_diaria_hotelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valor_diaria_hotelActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
