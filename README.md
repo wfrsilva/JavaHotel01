@@ -24,3 +24,4 @@ Muitas variaveis com nome **`hotel`**, desde variaveis de objeto java ate databe
 https://www.oficinadanet.com.br/artigo/java/criando-um-cadastro-de-usuario-em-java
 https://www.devmedia.com.br/criando-uma-conexao-java-mysql-server/16753
 https://medium.com/@raullesteves/github-como-fazer-um-readme-md-bonit%C3%A3o-c85c8f154f8
+https://www.youtube.com/watch?v=durhinqC7aA&feature=youtu.be
