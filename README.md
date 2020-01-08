@@ -3,10 +3,10 @@
 
 ## wfrsilva  / JavaHotel01
 
-Branch wendelH01
+### Branch wendelH01
 
-Muitas variaveis com nome **hotel**, desde variaveis de objeto java ate databes mysql, por isso renomeando alguns itens
-mysql - Tanto o database como a tabela se chamavam hotel.
+Muitas variaveis com nome **`hotel`**, desde variaveis de objeto java ate databes mysql, por isso renomeando alguns itens
+- MYSQL - Tanto o *database* (Banco de Dados) como a *table* (tabela) se chamavam hotel.
 
 
 # JAVA
