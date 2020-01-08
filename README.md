@@ -10,12 +10,13 @@ mysql - Tanto o database como a tabela se chamavam hotel.
 
 
 # JAVA
-**dao/HotelDAO.java** sera substituido pela **conexaoBanco/ConexaoMySQL.java**
-**HotelDAO.java** renomeado para **HotelDAO_OLD.java**
+[] - **dao/HotelDAO.java** sera substituido pela **conexaoBanco/ConexaoMySQL.java**
+
+[] - **HotelDAO.java** renomeado para **HotelDAO_OLD.java**
 
 # MYSQL
-database renomeado de hotel para bdhotel (inspirado em  "Banco de Dados Hotel")
-tabela hotel renomeada para tblhotel (inspirado em "Tabela Hotel")
+[] - database renomeado de hotel para bdhotel (inspirado em  "Banco de Dados Hotel")
+[] - tabela hotel renomeada para tblhotel (inspirado em "Tabela Hotel")
 
 
 ## REFERENCIAS
