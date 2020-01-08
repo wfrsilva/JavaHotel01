@@ -1,13 +1,11 @@
-package conexaoBanco;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+package factory;
 
-public class ConexaoMySQL {
+import java.sql.*;
+
+public class Conexao_OLD {
     
-    public static String status = "Aguardando status...";
-    
+     
+    //Metodo que abre a conexao
     public static Connection getConnection() throws SQLException{
  
             Connection conectar;
@@ -17,60 +15,67 @@ public class ConexaoMySQL {
             Class.forName("com.mysql.jdbc.Driver");
 
             String usuario = "root";
-            String senha = "";
+            String senha = "root";
             
-            conectar = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdhotel", usuario, senha);
+            conectar = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", usuario, senha);
             
             //Testa sua conexão//  
             if(conectar != null){
-                status = "Conectado com sucesso!";
-                
+
+                System.out.println("Conectado com sucesso!");
+
             }else{
-                status = "Conexão abortada...";
+
+                System.out.println("Conexão abortada.");
+
             }
-            
-            System.out.println(status);
 
             return (Connection) conectar;
             
 
         } catch (ClassNotFoundException e) {
-            status = "ClassNotFoundException - O driver especificado nao foi encontrado.";
-            System.out.println(status);
+
+            System.out.println("O driver especificado nao foi encontrado.");
             System.out.println(e);
             
             return null;
 
         } catch (SQLException e) {
-            status = "SQLException - Nao foi possivel conectar ao Banco de Dados.";
+
             //Não conseguindo se conectar ao banco
-            System.out.println(status);
+            System.out.println("Nao foi possivel conectar ao Banco de Dados." );
             System.out.println(e);
 
             return null;
 
         }
 
-    }//getConnection
-    
-    public static String statusConexao() {
-         return status;
-     }//statusConexao
+    }
 
    //Método que fecha sua conexão//
     public static boolean FecharConexao() {
+
         try {
-            ConexaoMySQL.getConnection().close();
+
+            Conexao.getConnection().close();
+
             return true;
+
         } catch (SQLException e) {
+
             return false;
+
         }
-    }//FecharConexao
+
+    }
 
    //Método que reinicia a conexão//
     public static java.sql.Connection ReiniciarConexao() throws SQLException {
+
         FecharConexao();
-        return ConexaoMySQL.getConnection();
+
+        return Conexao.getConnection();
+
     }
 
     public static void conectar() {
@@ -82,4 +87,4 @@ public class ConexaoMySQL {
 
     }
     
-}// class
+}

@@ -1,21 +1,15 @@
+//2020-01-07 Inicialmente vamos migrar para outra classe: ConexaoMySQL.java
 package dao;
 
-import factory.Conexao;
+import conexaoBanco.ConexaoMySQL;
 import modelo.Hotel;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class HotelDAO {
+    ConexaoMySQL conectar;
 
-    int hotelID;
-    String nome;
-    String cidade;
-    int quartos;
-    double valorDiaria;
-    int estrelas;
-    Conexao conectar;
-
-    public HotelDAO(Conexao conectar) throws SQLException{
+    public HotelDAO(ConexaoMySQL conectar) throws SQLException{
         
        this.conectar = conectar;
        
@@ -31,7 +25,7 @@ public class HotelDAO {
     // Adicionar registro ao BD
     public void adiciona(Hotel hotel) throws SQLException{
         
-        String sql = "INSERT INTO hotel(hotelID,nome,cidade,quartos,valorDiaria,estrelas) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO tblhotel(hotelID,nome,cidade,quartos,valorDiaria,estrelas) VALUES(?,?,?,?,?,?)";
         
         try {
             
@@ -64,7 +58,7 @@ public class HotelDAO {
         
         
         /*
-        String sql = "UPDATE hotel SET nome='"+nome+"', cidade='"+cidade+"', quartos='"+quartos+"', valorDiaria='"+valorDiaria+"', estrelas='"+estrelas+"' WHERE hotelID = '"+hotelID+"';";
+        String sql = "UPDATE tblhotel SET nome='"+nome+"', cidade='"+cidade+"', quartos='"+quartos+"', valorDiaria='"+valorDiaria+"', estrelas='"+estrelas+"' WHERE hotelID = '"+hotelID+"';";
        
         try {
             
@@ -95,7 +89,7 @@ public class HotelDAO {
         
         int hotelExcluirID = hotel.getHotelID();
         
-        String sql = "DELETE FROM hotel WHERE hotelID='"+hotelExcluirID+"';";
+        String sql = "DELETE FROM tblhotel WHERE hotelID='"+hotelExcluirID+"';";
             
         try {
             

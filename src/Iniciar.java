@@ -1,5 +1,5 @@
 import dao.HotelDAO;
-import factory.Conexao;
+import conexaoBanco.ConexaoMySQL;
 import gui.CadastroGUI;
 import java.sql.SQLException;
 
@@ -8,7 +8,7 @@ public class Iniciar {
     
     public static void main(String args[]) throws SQLException {
 
-        Conexao conectar = new Conexao();
+        ConexaoMySQL conectar = new ConexaoMySQL();
         
         HotelDAO hoteldao = new HotelDAO(conectar);
             

@@ -10,9 +10,9 @@ Muitas variaveis com nome **`hotel`**, desde variaveis de objeto java ate databe
 
 
 # JAVA
-- **`dao/HotelDAO.java`** sera substituido pela **`conexaoBanco/ConexaoMySQL.java`**
+- **`factory/Conexao.java`** sera substituido pela **`conexaoBanco/ConexaoMySQL.java`**
 
-- **`HotelDAO.java`** renomeado para **`HotelDAO_OLD.java`**
+- **`Conexao.java`** renomeado para **`Conexao_OLD.java`**
 
 # MYSQL
 - database renomeado de `hotel` para **`bdhotel`** (inspirado em  "Banco de Dados Hotel")

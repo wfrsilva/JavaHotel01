@@ -6,5 +6,6 @@ nome VARCHAR(255),
 cidade VARCHAR(255),
 quartos INTEGER,
 valorDiaria DOUBLE,
+estrelas INTEGER,
 PRIMARY KEY (hotelid)
 );
