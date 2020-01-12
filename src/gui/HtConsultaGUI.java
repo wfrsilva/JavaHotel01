@@ -20,6 +20,7 @@ public class HtConsultaGUI extends javax.swing.JFrame {
         this.dao = dao;
         initComponents();
         buscarDados();
+        this.setLocationRelativeTo(null);
     }//constructor
   
     //Hotel hotel = new Hotel();

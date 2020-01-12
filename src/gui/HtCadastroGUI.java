@@ -16,7 +16,7 @@ public class HtCadastroGUI extends javax.swing.JFrame {
         this.dao = hoteldao;
         
         initComponents();
-        
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
