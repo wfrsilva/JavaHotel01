@@ -8,6 +8,15 @@
 Muitas variaveis com nome **`hotel`**, desde variaveis de objeto java ate databes mysql, por isso renomeando alguns itens
 - MYSQL - Tanto o *database* (Banco de Dados) como a *table* (tabela) se chamavam hotel.
 
+Etapas concluidas:
+01 - **Salvar** (Cadastrar) um registro de Hotel:
+ - https://youtu.be/durhinqC7aA
+
+02 - **Listar** todos os dados (hoteis) Cadastrados:
+  -  https://youtu.be/Nb91_dlGhzQ 
+
+
+
 
 # JAVA
 - **`factory/Conexao.java`** sera substituido pela **`conexaoBanco/ConexaoMySQL.java`**
