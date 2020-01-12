@@ -4,6 +4,10 @@ package dao;
 import conexaoBanco.ConexaoMySQL;
 import modelo.Hotel;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class HotelDAO {
@@ -12,11 +16,11 @@ public class HotelDAO {
     public HotelDAO(ConexaoMySQL conectar) throws SQLException{
         
        this.conectar = conectar;
-       
-    }
+       System.out.println("#####HotelDAO(ConexaoMySQL conectar)#####");
+    }//constructor
 
     public HotelDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet. Codorna"); //To change body of generated methods, choose Tools | Templates.
     }
      
     
@@ -188,42 +192,56 @@ while( rs.next() ) {    //move o curso de registros
 */    
     // Consulta SQL tabela
     //public void consulta(String query){
-    public void consulta(Hotel hotel){
+    public List <Hotel> consultaTodosDados(){
 
-        String sql = "SELECT * FROM hotel ORDER BY hotelID ASC";
-        
-System.out.println(sql);
-System.out.println("SELECT * FROM hotel ORDER BY hotelID ASC");
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List <Hotel> listaHoteis = new ArrayList<>();
+        String sql = "SELECT * FROM tblhotel";
+        //String sql = "SELECT * FROM tblhotel ORDER BY hotelID ASC";
+        System.out.println(sql);
 
         try{
             
-            PreparedStatement stmt;
+            
             stmt = this.conectar.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
 
-System.out.println(sql);
-
+            System.out.println("rs gerada - " + sql);
+       
+      
             while(rs.next()){
-
-                System.out.println( rs.next());
-
-                hotel.setHotelID((int) rs.getInt("HotelID"));
+                System.out.println( "rs - " + rs.getInt("hotelid") + " - " + rs.getString("nome") );
+                //System.out.println( "rs.next() - " + rs.next());
+                Hotel hotel = new Hotel();
+             
+                hotel.setHotelID((int) rs.getInt("hotelid"));
                 hotel.setNome(rs.getString("nome"));
                 hotel.setCidade(rs.getString("cidade"));
                 hotel.setQuartos(Integer.parseInt(  rs.getString("quartos")  ));
                 hotel.setValorDiaria(Double.parseDouble( rs.getString("valorDiaria")));                
                 hotel.setEstrelas(Integer.parseInt(  rs.getString("Estrelas")  ));
-
+                
+                listaHoteis.add(hotel);
+/**
                 //ConsultaGUI.addRow(new Object[]{hotelID, nome, cidade, quartos, valorDiaria, estrelas});
-
-        }
-
-        }catch(SQLException s){    
+                **/
+            }//while
             
-            s.getStackTrace();
+        }//try
+        catch(SQLException ex){    
+            ex.getStackTrace();
+            Logger.getLogger(HotelDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }//catch
+        finally{
+            //ConexaoMySQL.fecharConexao((Connection) conectar, stmt, rs);
             
-        }
+        }//finally
+          
+        System.out.println("HotelDao - consultaTodosDados - return listaHoteis");
+        System.out.println("listaHoteis.size() = " + listaHoteis.size());
+        return listaHoteis;
         
-    }
+    }//consultaTodosDados
     
 }

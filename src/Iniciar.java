@@ -1,6 +1,6 @@
 import dao.HotelDAO;
 import conexaoBanco.ConexaoMySQL;
-import gui.CadastroGUI;
+import gui.HtCadastroGUI;
 import java.sql.SQLException;
 
 
@@ -12,7 +12,7 @@ public class Iniciar {
         
         HotelDAO hoteldao = new HotelDAO(conectar);
             
-        new CadastroGUI(hoteldao).setVisible(true);
+        new HtCadastroGUI(hoteldao).setVisible(true);
 
     }
     

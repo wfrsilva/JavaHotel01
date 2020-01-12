@@ -2,7 +2,10 @@ package conexaoBanco;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConexaoMySQL {
     
@@ -58,7 +61,7 @@ public class ConexaoMySQL {
      }//statusConexao
 
    //Método que fecha sua conexão//
-    public static boolean FecharConexao() {
+    public static boolean fecharConexao() {
         try {
             ConexaoMySQL.getConnection().close();
             return true;
@@ -66,10 +69,49 @@ public class ConexaoMySQL {
             return false;
         }
     }//FecharConexao
+    
+    public static void fecharConexao(Connection con){
+        try {
+            if (con != null) {
+                con.close();
+            }//if
+        }//try 
+        catch (SQLException ex) {
+            Logger.getLogger(ConexaoMySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }//catch
+    }//fecharConexao
+    
+    public static void fecharConexao(Connection con, PreparedStatement stmt){
+        fecharConexao(con);
+        
+        try{
+            if(stmt !=null){
+                stmt.close();
+            }//if
+        }//try
+        catch (SQLException ex) {
+            Logger.getLogger(ConexaoMySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }//catch
+    }//fecharConexao
 
+    public static void fecharConexao(Connection con, PreparedStatement stmt, ResultSet rs){
+        fecharConexao(con, stmt);
+        
+        try{
+            if(rs!=null){
+                rs.close();
+            }//if
+        }//try
+        catch (SQLException ex) {
+            Logger.getLogger(ConexaoMySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }//catch
+
+    }//fecharConexao
+    
+    
    //Método que reinicia a conexão//
     public static java.sql.Connection ReiniciarConexao() throws SQLException {
-        FecharConexao();
+        fecharConexao();
         return ConexaoMySQL.getConnection();
     }
 

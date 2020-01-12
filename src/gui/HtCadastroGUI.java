@@ -7,11 +7,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Hotel;
 
-public class CadastroGUI extends javax.swing.JFrame {
+public class HtCadastroGUI extends javax.swing.JFrame {
  
     HotelDAO dao;
               
-    public CadastroGUI(HotelDAO hoteldao) {
+    public HtCadastroGUI(HotelDAO hoteldao) {
         
         this.dao = hoteldao;
         
@@ -255,7 +255,7 @@ public class CadastroGUI extends javax.swing.JFrame {
             try {
                 dao.adiciona(hotel);
             } catch (SQLException ex) {
-                Logger.getLogger(CadastroGUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(HtCadastroGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null, "Hotel " + nome_hotel.getText() + " inserido com sucesso! ");
             
@@ -317,10 +317,15 @@ System.out.println(hotel.getCidade());
 
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
         	
-        ConsultaGUI consultaGUI;
-        consultaGUI = new ConsultaGUI();
+        HtConsultaGUI consultaGUI;
+        try {
+            consultaGUI = new HtConsultaGUI(dao);
+            consultaGUI.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(HtCadastroGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        consultaGUI.setVisible(true);
+        
         
     }//GEN-LAST:event_listarActionPerformed
 
