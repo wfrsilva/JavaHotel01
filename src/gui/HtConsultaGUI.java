@@ -19,7 +19,7 @@ public class HtConsultaGUI extends javax.swing.JFrame {
     public HtConsultaGUI(HotelDAO dao) throws SQLException{
         this.dao = dao;
         initComponents();
-        buscarDados();
+        buscarDadosParaJTable();
         this.setLocationRelativeTo(null);
     }//constructor
   
@@ -38,7 +38,7 @@ public class HtConsultaGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTtabela = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,15 +46,24 @@ public class HtConsultaGUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Listar hotéis");
 
-        jTtabela.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-
+                "ID", "Nome", "Cidade", "Quartos", "Valor da diária", "Estrelas"
             }
         ));
-        jScrollPane1.setViewportView(jTtabela);
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setHeaderValue("ID");
+            jTable1.getColumnModel().getColumn(1).setHeaderValue("Nome");
+            jTable1.getColumnModel().getColumn(2).setHeaderValue("Cidade");
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("Quartos");
+            jTable1.getColumnModel().getColumn(4).setHeaderValue("Valor da diária");
+            jTable1.getColumnModel().getColumn(5).setHeaderValue("Estrelas");
+        }
 
         jToggleButton1.setText("Fechar");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,16 +112,11 @@ public class HtConsultaGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JTable jTtabela;
     // End of variables declaration//GEN-END:variables
 
-    public  void buscarDados(){
-
-        boolean ehConsulta = true;
-        List <Hotel> listaHoteis ;
-        listaHoteis = dao.consultaTodosDados();
-        
+    public DefaultTableModel formatarJTableAposBuscaDados(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
         modelo.addColumn("Nome");
@@ -122,8 +126,15 @@ public class HtConsultaGUI extends javax.swing.JFrame {
         modelo.addColumn("Estrelas");
         //modelo.setNumRows(0);
         
-        jTtabela.setModel(modelo);
+        jTable1.setModel(modelo);
         
+        return modelo;
+        
+    }
+    
+    public  void buscarDadosParaJTable(){
+        
+        DefaultTableModel modelo = formatarJTableAposBuscaDados();
         
         for(Hotel h : dao.consultaTodosDados()){
             modelo.addRow(

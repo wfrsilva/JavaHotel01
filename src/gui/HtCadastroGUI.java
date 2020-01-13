@@ -1,11 +1,17 @@
 package gui;
 
 import dao.HotelDAO;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Hotel;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HtCadastroGUI extends javax.swing.JFrame {
  
@@ -17,6 +23,13 @@ public class HtCadastroGUI extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Sistema GUI de cadastro de Hotéis");
+
+        URL iconURL = getClass().getResource("/res/hotel.png") ;
+        ImageIcon icon = new ImageIcon(iconURL);
+        this.setIconImage(icon.getImage());
+
+
     }
 
     @SuppressWarnings("unchecked")
@@ -292,29 +305,48 @@ public class HtCadastroGUI extends javax.swing.JFrame {
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
 
-        Hotel hotel = new Hotel();
+        String idAlteracaoStr = JOptionPane.showInputDialog("Digite o ID a ser alterado:");
+        System.out.println("HtCadastroGUI - idAlteracaoStr = " + idAlteracaoStr);
+        int idAlteracaoInt;
+        idAlteracaoInt = Integer.parseInt(idAlteracaoStr.trim());
         
-        String idAlteracao = JOptionPane.showInputDialog("Digite o ID a ser alterado:");
+        List listaHotelAlterar = dao.consultaUnicaList(idAlteracaoInt);
+        System.out.println("HtCadastroGUI.alterarActionPerformed().listaHotelAlterar.size() => " + listaHotelAlterar.size());
+        
+        carregarFrameComBuscaUnica(listaHotelAlterar);
+        
+       /*xx
+        Hotel hotelAlterar;
+        hotelAlterar = new Hotel();
+        hotelAlterar.setNome("SEM NOME");
+        System.out.println("HtCadastroGUI - hotel.getNome() = " + hotelAlterar.getNome());
 
-        int hotelID;
-        hotelID = Integer.parseInt(idAlteracao.trim());
+        hotelAlterar = dao.consultaUnica(idAlteracaoInt);
+        System.out.println("HtCadastroGUI - hotel.getNome() = " + hotelAlterar.getNome());
+        System.out.println("HtCadastroGUI - hotel.getCidade() = " + hotelAlterar.getCidade());
         
-        hotel.setHotelID(hotelID);
-        
-        dao.consultaUnica(hotel);
-        
-System.out.println(hotel.getCidade());
-        
-        /**/
-        nome_hotel.setText(hotel.getNome());
-        /*
-        cidade_hotel.setText(hotel.getCidade());
+        nome_hotel.setText(hotelAlterar.getNome());
+        cidade_hotel.setText(hotelAlterar.getCidade()); xx*/
+         /*
         num_quartos_hotel.setInt(Integer.parseInt(hotel.getQuartos());
         valor_diaria_hotel.setText("");
         num_estrelas_hotel.setText("");
         /**/
     }//GEN-LAST:event_alterarActionPerformed
 
+    public void carregarFrameComBuscaUnica(List listaHoteis){
+        Hotel hotelAlterar = new Hotel();
+        hotelAlterar = (Hotel) listaHoteis.get(0);
+        nome_hotel.setText(hotelAlterar.getNome());
+        cidade_hotel.setText(hotelAlterar.getCidade());
+        num_quartos_hotel.setText(Integer.toString(hotelAlterar.getQuartos())) ;
+        valor_diaria_hotel.setText(String.valueOf(hotelAlterar.getValorDiaria()));
+        num_estrelas_hotel.setText(Integer.toString(hotelAlterar.getEstrelas()));
+        
+        
+    }
+    
+    
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
         	
         HtConsultaGUI consultaGUI;
