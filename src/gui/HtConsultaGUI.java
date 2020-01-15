@@ -55,6 +55,7 @@ public class HtConsultaGUI extends javax.swing.JFrame {
                 "ID", "Nome", "Cidade", "Quartos", "Valor da diária", "Estrelas"
             }
         ));
+        jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 64));
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setHeaderValue("ID");

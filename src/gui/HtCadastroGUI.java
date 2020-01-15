@@ -24,8 +24,8 @@ public class HtCadastroGUI extends javax.swing.JFrame {
     ImageIcon iconeFav = new ImageIcon(iconeFavURL);
     URL iconeSalvarURL = getClass().getResource("/res/salvar.png") ;
     ImageIcon iconeSalvar = new ImageIcon(iconeSalvarURL);
-    URL iconeAtualizarURL = getClass().getResource("/res/atualizar.png") ;
-    ImageIcon iconeAtualizar = new ImageIcon(iconeAtualizarURL);
+    URL iconeAlterarURL = getClass().getResource("/res/alterar.png") ;
+    ImageIcon iconeAlterar = new ImageIcon(iconeAlterarURL);
               
     public HtCadastroGUI(HotelDAO hoteldao) {
         
@@ -271,20 +271,23 @@ public class HtCadastroGUI extends javax.swing.JFrame {
         /*  ehAlteracao = TRUE, então pressionando botão SALVAR, vai Alterar(atualizar) a tupla (registro) carregada;
             ehAlteracao = FALSE, então pressionando botão SALVAR, vai criar uma nova tupla (registro); */
         String insOUalt = "";
+        ImageIcon iconeAtuOuSal;
         if(ehAlteracao){
             AMTAlteraHotel();
             insOUalt = "ALTERADO";
+            iconeAtuOuSal = iconeAlterar;
         }//if
         else{
             AMTSalvarNovoHotel();
             insOUalt = "INSERIDO";
+            iconeAtuOuSal = iconeSalvar;
         }//else
         
-        String msgSMD = "<html>Hotel: " + nome_hotel.getText() + " <b>" +insOUalt+ "</b> com sucesso! </html>";
+        String msgSMD = "<html>Hotel: " + nome_hotel.getText() + " <br><b>" +insOUalt+ "</b> com sucesso! </html>";
         String msgTit = nome_hotel.getText()+ " " +insOUalt+ "!";
         JLabel labelSMD = new JLabel(msgSMD);
-        labelSMD.setFont(new Font("serif", Font.PLAIN, 14));
-        JOptionPane.showMessageDialog(null,labelSMD, msgTit ,JOptionPane.INFORMATION_MESSAGE,iconeSalvar);
+        labelSMD.setFont(new Font("Arial", Font.PLAIN, 12));
+        JOptionPane.showMessageDialog(null,labelSMD, msgTit ,JOptionPane.INFORMATION_MESSAGE,iconeAtuOuSal);
         
         limparCamposFrame();
         AMTDesativarEhAlterar();
