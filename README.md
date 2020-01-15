@@ -3,6 +3,20 @@
 
 ## wfrsilva  / JavaHotel01
 
+### Branch AMT (Alterar na Mesma Tela Salvar)
+- Botao Alterar Chama dialogo,
+- Dialogo recebe um numero no campo de texto, 
+- Passa esse numero para procurar o hotelid,
+- Consulta no banco o hotelid,
+- Retorna tupla (registro) do hotelid pesquisado nos Campos de Texto (JTextField), os mesmos usados para salvar;
+- Atribui Variavel ehAlteracao para TRUE,
+- Atribui Jlabel com o valor do hotelid procurado,
+- Aguarda alteracoes diretamente nos campos de texto (JTextField),
+- Clica-se no botão salvar, 
+- como JLabel possiu id e variavel ehAlteracao esta TRUE, faz os processos de alteração e nao de salvamento (NAO cria nova tupla, novo registro),
+- Grava a alteração na tupla (no registro) com mesmo valor do hotelid,
+
+
 ### Branch wendelH01
 
 Muitas variaveis com nome **`hotel`**, desde variaveis de objeto java ate databes mysql, por isso renomeando alguns itens
