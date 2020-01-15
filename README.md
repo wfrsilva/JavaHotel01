@@ -30,7 +30,7 @@ Muitas variaveis com nome **`hotel`**, desde variaveis de objeto java ate databe
 02 - **Listar** todos os dados (hoteis) Cadastrados:
   -  https://youtu.be/Nb91_dlGhzQ 
   
-03 - **Alterar (AMT)** regitro (tupla) pesquisada usando mesma tela (MT) do Salvar:
+03 - **Alterar (AMT)** registro (tupla) pesquisada usando mesma tela (MT) do Salvar:
   - Aguardando video ...
 
 
