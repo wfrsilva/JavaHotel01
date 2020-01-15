@@ -293,7 +293,10 @@ public class HtCadastroGUI extends javax.swing.JFrame {
     public void AMTAlteraHotel(){
         /*  ehAlteracao = TRUE  */
         Hotel hotel = AMTCapturaTextFieldCadastro();
-        
+        int idLabel = Integer.parseInt(jlHotelIdNr.getText());
+        hotel.setHotelID(idLabel);
+        System.out.println("GUI - AMTAlteraHotel - hotel.nome = " + hotel.getNome());
+        dao.altera(hotel);
        
     }//AMT-AlteraHotel
         

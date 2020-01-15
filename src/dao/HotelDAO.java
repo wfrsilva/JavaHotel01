@@ -34,7 +34,6 @@ public class HotelDAO {
         try {
             
             try (PreparedStatement stmt = conectar.prepareStatement(sql)) {
-                
                 stmt.setInt(1, hotel.getHotelID());
                 stmt.setString(2, hotel.getNome());
                 stmt.setString(3, hotel.getCidade());
@@ -60,33 +59,33 @@ public class HotelDAO {
     // Alterar registro do BD
     public void altera(Hotel hotel){
         
-        
-        /*
-        String sql = "UPDATE tblhotel SET nome='"+nome+"', cidade='"+cidade+"', quartos='"+quartos+"', valorDiaria='"+valorDiaria+"', estrelas='"+estrelas+"' WHERE hotelID = '"+hotelID+"';";
-       
-        try {
-            
-            try (PreparedStatement stmt = conectar.prepareStatement(sql)) {
-                
-                stmt.setInt(1, hotel.getHotelID());
-                stmt.setString(2, hotel.getNome());
-                stmt.setString(3, hotel.getCidade());
-                stmt.setInt(4, hotel.getQuartos());
-                stmt.setDouble(5, hotel.getValorDiaria());
-                stmt.setInt(6, hotel.getEstrelas());
-                
-                stmt.execute();
-                stmt.close(); 
-                
-            }
-            
-        }
-        
-        catch (SQLException u) { 
+        System.out.println("DAO Inicio - altera - hotel.nome = " + hotel.getNome() );
+
+        //String sql = "UPDATE tblhotel SET nome='"+ hotel.getNome()+"', cidade='"+ hotel.getCidade() +"', quartos='"+ hotel.getQuartos() +"', valorDiaria='"+ hotel.getValorDiaria() +"', estrelas='"+ hotel.getEstrelas() +"' WHERE hotelid = '"+ hotel.getHotelID() +"'";
+       String sql = "UPDATE tblhotel SET nome = ?, cidade = ?, quartos = ?, valorDiaria = ?, estrelas = ? WHERE hotelID = ?;";
+           
+        System.out.println("DAO altera - SQL = "+ sql);
+        try (PreparedStatement stmt = conectar.prepareStatement(sql)) {
+
+            //
+            stmt.setString(1, hotel.getNome());
+            stmt.setString(2, hotel.getCidade());
+            stmt.setInt(3, hotel.getQuartos());
+            stmt.setDouble(4, hotel.getValorDiaria());
+            stmt.setInt(5, hotel.getEstrelas());
+            stmt.setInt(6, hotel.getHotelID());
+
+            stmt.executeUpdate();
+            stmt.close();
+
+        }//try
+        catch (SQLException u) {
             throw new RuntimeException(u);
-        } 
-        */
-    }
+        } //catch
+
+        System.out.println("DAO fim - altera - hotel.nome = " + hotel.getNome());
+
+    }//altera
     
     // Exclui registro no BD
     public void exclui(Hotel hotel){
