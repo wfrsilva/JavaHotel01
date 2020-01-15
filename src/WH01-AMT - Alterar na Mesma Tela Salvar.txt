@@ -1,0 +1,7 @@
+Branch AMT 
+Alterar na Mesma Tela Salvar
+
+Sera carregada a tupla a ser alterarada aproveitandos so campos de texto do Frame Atual (HtCadastroGUI), para:
+- carregar a tupla existente, 
+- realizar a alteracao,
+- Atualizar a tupla existente no Banco de dados
