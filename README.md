@@ -38,3 +38,13 @@ https://www.devmedia.com.br/criando-uma-conexao-java-mysql-server/16753
 https://medium.com/@raullesteves/github-como-fazer-um-readme-md-bonit%C3%A3o-c85c8f154f8
 
 https://www.youtube.com/watch?v=durhinqC7aA&feature=youtu.be
+
+http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png
+
+http://gauss.ececs.uc.edu/Users/Franco/Fonts/Fonts.java.html
+
+https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
+
+https://alvinalexander.com/blog/post/jdbc/sample-jdbc-preparedstatement-sql-update
+
+https://alvinalexander.com/java/java-mysql-update-query-example
